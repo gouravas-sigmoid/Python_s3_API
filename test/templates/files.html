@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block title %}S3 Object List{% endblock %}
+
+{% block content %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container ">
+  <div class="row">
+    <div class="formCenter formChange">
+      <div class="col-sm-15 col-md-15 col-md-offset-0 well">
+        <legend>Content of Bucket</legend>
+        <p> Created: {{my_bucket.creation_date | datetimeformat }}</p>
+          
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <p class="bg-info" style="Padding: 15Px; ">
+                {% for message in messages %}
+                  {{ message }}<br>
+                  {% endfor %}
+                </p>
+              {% endif %}
+            {% endwith %}
+        <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+          <div class="btn-group btn-group-sm btn" role="group" aria-label="...">
+            <p><input type="file" name="file"></p>
+            <button type="submit" name="submit" class="btn btn-secondary btn-sm btn-default" >Upload</button>
+            
+          </div>           
+          <table class="table table-stripped">
+              <tr>
+                  <th>Filename</th>
+                  <th>Last Modified</th>
+                  <th>Type</th>
+                  <th></th>
+              </tr>
+              {% for f in files %}
+              <tr>
+                  <td>{{ f.key }}</td>
+                  <td>{{ f.last_modified | datetimeformat }}</td>
+                  <td>{{ f.key | file_type }}</td>
+                  <td class="td-buttons well">
+                    <form class="delete-form" action="{{ url_for('delete') }}" method="post">
+                      <div class="form-row">
+                        <input type="hidden" name="key" value="{{ f.key }}">
+                        <button type="Submit" class="btn btn-danger btn-sm" >
+                          <i class="fa fa-trash-alt" ></i>
+                      </div>
+                      </button>
+                    </form> 
+                    <form class="download-form" action="{{ url_for('download') }}" method="post">
+                    <div class="col col-auto">
+                      <input type="hidden" name="key" value="{{ f.key }}" placeholder="download">
+                      <button type="Submit" class="btn btn-default btn-sm" >
+                        <i class="fa fa-download" ></i>
+                      </button>
+                    </div>
+                    </form>  
+                  </td>
+              </tr>
+              {% endfor %}    
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

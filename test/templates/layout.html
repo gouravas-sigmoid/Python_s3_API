@@ -1,0 +1,41 @@
+{% extends "bootstrap/base.html" %}
+{% block html_attribs %} lang="en"{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/sigmoid.jpg">
+  <link rel="stylesheet" href="/static/style.css">
+
+  {% endblock%}
+
+  {% block navbar %} 
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-light bg-light">
+               <img src="{{ url_for('static', filename='sigmoid.jpg') }}" alt="" width="90" height="65" class=""></li>
+               Python Project Demo
+            </nav>
+        </div>
+    </div>
+    <div class="lo ">
+        <a href="{{ url_for('logout') }}">logout</a>
+    </div>
+    <div class="row ">
+        <div class="col" >
+            <ul class="nav navbar-nav navbar-light">
+                <li><a href="{{ url_for('home') }}">Buckets</a></li>
+                <li><a href="{{ url_for('files') }}">Files</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+  {% endblock %}
+
+<div class="container">
+    {% block title %}  {% endblock %}
+</div>

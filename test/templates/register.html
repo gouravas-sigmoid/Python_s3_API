@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col" style="background-color:rgba(0, 148, 96, 0.1);">
+            <ul class="navbar navbar-light bg-light">
+                <img src="{{ url_for('static', filename='sigmoid.jpg') }}" alt="" width="90" height="65" class="">
+                Python Project Demo
+            </ul>
+        </div>
+    </div>
+</div>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+      <div class="container ">
+        <div class="row">
+          <div class="formCenter formChange  ">
+            <div class="col-sm-12 col-md-5 col-md-offset-4 well ">
+                <legend>Register to  S3 API</legend>
+              <form method="POST" action="" accept-charset="UTF-8" id="loginForm">
+                <div class="form-group input-group "> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                  <input class="form-control" type="text" name='username' placeholder="Enter username" required/>
+                </div>
+                <div class="form-group input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>      
+                  <input class="form-control" type="password" name='password' placeholder="Enter password" required/>
+                </div>
+                <table>
+                    <tr><td>
+                        <div class="form-group" style="width: 100px;">
+                            <button type="Submit" class="btn btn-info btn-block">Sign Up</button>
+                        </div></td>
+                        <td><div class="form-group" style="width: 100px; margin-left: 250px;">
+                            <h4>Already have an account, <a href="{{ login }}"></a>Login here</h4>
+                        </div></td>
+                    </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
+{% endblock %}
+-->

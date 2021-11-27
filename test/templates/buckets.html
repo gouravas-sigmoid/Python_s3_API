@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}S3 Bucket List {% endblock %}
+
+{% block content %}
+<div class="container ">
+    <div class="row">
+        <div class="formCenter formChange">
+            <div class="col-sm-15 col-md-15 col-md-offset-0 well">
+                <legend>Content of Bucket</legend>
+                    <table class="table table-stripped">
+                    <tr>
+                        <th>Bucket Name</th>
+                        <th>Created</th>
+                        <th></th>
+                    </tr>
+                    {% for bucket in buckets %}
+                    <tr>
+                        <td>{{ bucket['Name'] }}</td>
+                        <td>{{ bucket['CreationDate'] | datetimeformat }}</td>
+                        <td>
+                            <form class="select-bucket" action="{{ url_for('home') }}" method="post">
+                                <input type="hidden" name="bucket" value="{{ bucket['Name'] }}"/>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-archive"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+                </legend>
+            </div> 
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+body, col {
+    background-color: whites;
+}
+.td-buttons form {
+    display: inline-block;
+}
+
+col, li {
+    
+    font-size: 14px;
+    line-height: 22px;
+    margin-inline: 15Px;
+}
+.lo {
+    
+    background-color: rgb(226, 225, 223);
+    margin-left: 1100px;
+}
